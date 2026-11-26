@@ -90,7 +90,7 @@ CREATE TABLE supplier ( -- fornecedor
     CONSTRAINT uk_supplier_email UNIQUE (email) -- único
 ) ENGINE=InnoDB; -- mecanismo de armazenamento utilizado pela tabela
 
-CREATE TABLE product (
+CREATE TABLE product ( -- produto
     id_product INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
     category_id INT UNSIGNED NOT NULL, -- FK
     supplier_id INT UNSIGNED, -- FK, não é "NOT NULL" porque a própria empresa pode oferecer serviços e produtos
@@ -124,7 +124,7 @@ CREATE TABLE product (
 --    ESTOQUE, VENDAS E PAGAMENTOS
 -- =================================
 
-CREATE TABLE inventory (
+CREATE TABLE inventory ( -- estoque/inventário
     id_inventory INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
     product_id INT UNSIGNED NOT NULL, -- FK
     quantity DECIMAL(12,3) NOT NULL DEFAULT 0, -- quantidade em estoque
@@ -156,7 +156,7 @@ CREATE TABLE customer ( -- cliente
     CONSTRAINT uk_customer_email UNIQUE (email) -- único
 ) ENGINE=InnoDB; -- mecanismo de armazenamento utilizado pela tabela
 
-CREATE TABLE sale (
+CREATE TABLE sale ( -- venda
     id_sale INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
     customer_id INT UNSIGNED, -- FK
     employee_id INT UNSIGNED NOT NULL, -- FK
@@ -178,7 +178,7 @@ CREATE TABLE sale (
             ON DELETE RESTRICT -- impede que a exclusão de um funcionário afete um registro de venda
 ) ENGINE=InnoDB; -- mecanismo de armazenamento utilizado pela tabela
 
-CREATE TABLE inventory_movement (
+CREATE TABLE inventory_movement ( -- movimentação de estoque/inventário
     id_inventory_movement INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
     product_id INT UNSIGNED NOT NULL, -- FK
     user_id INT UNSIGNED NOT NULL, -- FK
@@ -208,12 +208,12 @@ CREATE TABLE inventory_movement (
             ON DELETE RESTRICT -- impede que a exclusão de uma venda afete o histórico do estoque
 ) ENGINE=InnoDB; -- mecanismo de armazenamento utilizado pela tabela
 
-CREATE TABLE sale_item (
+CREATE TABLE sale_item ( -- item de venda
     id_sale_item INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
     sale_id INT UNSIGNED NOT NULL, -- FK
     product_id INT UNSIGNED NOT NULL, -- FK
     quantity DECIMAL(12,3) NOT NULL,
-    unit_price DECIMAL(12,2) DEFAULT NULL,
+    unit_price DECIMAL(12,2) DEFAULT NULL, -- é preenchido automaticamente pela trigger trg_sale_item_set_price
     subtotal DECIMAL(14,2)
         GENERATED ALWAYS AS (
                 quantity * unit_price
@@ -235,7 +235,7 @@ CREATE TABLE sale_item (
             ON DELETE RESTRICT -- impede que a exclusão de um produto afete um registro de venda
 ) ENGINE=InnoDB; -- mecanismo de armazenamento utilizado pela tabela
 
-CREATE TABLE payment (
+CREATE TABLE payment ( -- pagamento
     id_payment INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
     sale_id INT UNSIGNED NOT NULL, -- FK
     payment_method ENUM(
@@ -267,7 +267,7 @@ CREATE TABLE payment (
 --        AUDITORIA E LOGS
 -- =================================
 
-CREATE TABLE access_log ( -- log + acesso
+CREATE TABLE access_log ( -- log de acessos
     id_access_log INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
     user_id INT UNSIGNED, -- FK,  não tem o "NOT NULL" aqui pra poder registrar também as tentativas de usuários inexistentes
     provided_username VARCHAR(50) NOT NULL, -- o user_name informado na tentativa de acesso
@@ -281,7 +281,7 @@ CREATE TABLE access_log ( -- log + acesso
             ON DELETE SET NULL -- se o usuário for excluído, ele vira "NULL" e não afeta um log de acesso
 ) ENGINE=InnoDB; -- mecanismo de armazenamento utilizado pela tabela
 
-CREATE TABLE audit_log (
+CREATE TABLE audit_log ( -- log de auditoria
     id_audit_log INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
     user_id INT UNSIGNED, -- FK, não tem "NOT NULL" porque o sistema tmabém pode alterar valores
     operation ENUM(
@@ -302,7 +302,7 @@ CREATE TABLE audit_log (
             ON DELETE SET NULL -- se o usuário for excluído, ele vira "NULL" e não afeta um log de auditoria
 ) ENGINE=InnoDB; -- mecanismo de armazenamento utilizado pela tabela
 
-CREATE TABLE operation_log (
+CREATE TABLE operation_log ( -- log de operações
     id_operation_log INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
     user_id INT UNSIGNED, -- FK, não tem "NOT NULL" porque o sistema tmabém pode alterar valores
     operation VARCHAR(100) NOT NULL,
