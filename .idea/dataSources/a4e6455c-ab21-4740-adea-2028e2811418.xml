@@ -45,7 +45,7 @@ university|schema||srhalvs|localhost|SHOW CREATE ROUTINE|G
 university|schema||srhalvs|localhost|SHOW VIEW|G
 university|schema||srhalvs|localhost|TRIGGER|G
 university|schema||srhalvs|localhost|UPDATE|G</Grants>
-      <ServerVersion>13.0.2</ServerVersion>
+      <ServerVersion>13.1.2</ServerVersion>
       <DefaultCollationName>utf8mb4_unicode_ci</DefaultCollationName>
     </root>
     <collation id="2" parent="1" name="armscii8_bin">
@@ -1378,7 +1378,7 @@ university|schema||srhalvs|localhost|UPDATE|G</Grants>
       <AutoIntrospectionLevel>3</AutoIntrospectionLevel>
       <Current>1</Current>
       <LastIntrospectionLevel>3</LastIntrospectionLevel>
-      <LastIntrospectionLocalTimestamp>2026-11-25.23:09:34</LastIntrospectionLocalTimestamp>
+      <LastIntrospectionLocalTimestamp>2026-11-26.19:59:20</LastIntrospectionLocalTimestamp>
       <CollationName>utf8mb4_unicode_ci</CollationName>
     </schema>
     <schema id="556" parent="1" name="test">
@@ -2094,327 +2094,348 @@ university|schema||srhalvs|localhost|UPDATE|G</Grants>
     <key id="700" parent="568" name="uk_product_sku">
       <UnderlyingIndexName>uk_product_sku</UnderlyingIndexName>
     </key>
-    <column id="701" parent="569" name="id_role">
+    <trigger id="701" parent="568" name="trg_audit_product_insert">
+      <Definer>srhalvs@localhost</Definer>
+      <Events>I</Events>
+      <SourceTextLength>848</SourceTextLength>
+    </trigger>
+    <trigger id="702" parent="568" name="trg_audit_product_update">
+      <Definer>srhalvs@localhost</Definer>
+      <Events>U</Events>
+      <SourceTextLength>1358</SourceTextLength>
+    </trigger>
+    <trigger id="703" parent="568" name="trg_audit_product_delete">
+      <Definer>srhalvs@localhost</Definer>
+      <Events>D</Events>
+      <SourceTextLength>848</SourceTextLength>
+    </trigger>
+    <column id="704" parent="569" name="id_role">
       <AutoIncrement>1</AutoIncrement>
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StoredType>int(10) unsigned|0s</StoredType>
     </column>
-    <column id="702" parent="569" name="name">
+    <column id="705" parent="569" name="name">
       <NotNull>1</NotNull>
       <Position>2</Position>
       <StoredType>varchar(30)|0s</StoredType>
     </column>
-    <index id="703" parent="569" name="PRIMARY">
+    <index id="706" parent="569" name="PRIMARY">
       <ColNames>id_role</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <index id="704" parent="569" name="uk_role_name">
+    <index id="707" parent="569" name="uk_role_name">
       <ColNames>name</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <key id="705" parent="569" name="PRIMARY">
+    <key id="708" parent="569" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
-    <key id="706" parent="569" name="uk_role_name">
+    <key id="709" parent="569" name="uk_role_name">
       <UnderlyingIndexName>uk_role_name</UnderlyingIndexName>
     </key>
-    <check id="707" parent="570" name="chk_sale_total_amount">
+    <check id="710" parent="570" name="chk_sale_total_amount">
       <Predicate>`total_amount` &gt;= 0</Predicate>
     </check>
-    <column id="708" parent="570" name="id_sale">
+    <column id="711" parent="570" name="id_sale">
       <AutoIncrement>1</AutoIncrement>
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StoredType>int(10) unsigned|0s</StoredType>
     </column>
-    <column id="709" parent="570" name="customer_id">
+    <column id="712" parent="570" name="customer_id">
       <Position>2</Position>
       <StoredType>int(10) unsigned|0s</StoredType>
     </column>
-    <column id="710" parent="570" name="employee_id">
+    <column id="713" parent="570" name="employee_id">
       <NotNull>1</NotNull>
       <Position>3</Position>
       <StoredType>int(10) unsigned|0s</StoredType>
     </column>
-    <column id="711" parent="570" name="sale_date">
+    <column id="714" parent="570" name="sale_date">
       <DefaultExpression>current_timestamp()</DefaultExpression>
       <NotNull>1</NotNull>
       <Position>4</Position>
       <StoredType>timestamp|0s</StoredType>
     </column>
-    <column id="712" parent="570" name="total_amount">
+    <column id="715" parent="570" name="total_amount">
       <DefaultExpression>0.00</DefaultExpression>
       <NotNull>1</NotNull>
       <Position>5</Position>
       <StoredType>decimal(14,2 digit)|0s</StoredType>
     </column>
-    <column id="713" parent="570" name="status">
+    <column id="716" parent="570" name="status">
       <DefaultExpression>&apos;PENDING&apos;</DefaultExpression>
       <NotNull>1</NotNull>
       <Position>6</Position>
       <StoredType>enum(&apos;PENDING&apos;, &apos;COMPLETED&apos;, &apos;CANCELED&apos;)|0e</StoredType>
     </column>
-    <foreign-key id="714" parent="570" name="fk_sale_customer">
+    <foreign-key id="717" parent="570" name="fk_sale_customer">
       <ColNames>customer_id</ColNames>
       <OnUpdate>cascade</OnUpdate>
       <RefColNames>id_customer</RefColNames>
       <RefTableName>customer</RefTableName>
     </foreign-key>
-    <foreign-key id="715" parent="570" name="fk_sale_employee">
+    <foreign-key id="718" parent="570" name="fk_sale_employee">
       <ColNames>employee_id</ColNames>
       <OnUpdate>cascade</OnUpdate>
       <RefColNames>id_employee</RefColNames>
       <RefTableName>employee</RefTableName>
     </foreign-key>
-    <index id="716" parent="570" name="PRIMARY">
+    <index id="719" parent="570" name="PRIMARY">
       <ColNames>id_sale</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <index id="717" parent="570" name="fk_sale_customer">
+    <index id="720" parent="570" name="fk_sale_customer">
       <ColNames>customer_id</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="718" parent="570" name="fk_sale_employee">
+    <index id="721" parent="570" name="fk_sale_employee">
       <ColNames>employee_id</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="719" parent="570" name="PRIMARY">
+    <key id="722" parent="570" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
-    <check id="720" parent="571" name="chk_sale_item_quantity">
+    <check id="723" parent="571" name="chk_sale_item_quantity">
       <Predicate>`quantity` &gt; 0</Predicate>
     </check>
-    <check id="721" parent="571" name="chk_sale_item_unit_price">
+    <check id="724" parent="571" name="chk_sale_item_unit_price">
       <Predicate>`unit_price` is null or `unit_price` &gt;= 0</Predicate>
     </check>
-    <column id="722" parent="571" name="id_sale_item">
+    <column id="725" parent="571" name="id_sale_item">
       <AutoIncrement>1</AutoIncrement>
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StoredType>int(10) unsigned|0s</StoredType>
     </column>
-    <column id="723" parent="571" name="sale_id">
+    <column id="726" parent="571" name="sale_id">
       <NotNull>1</NotNull>
       <Position>2</Position>
       <StoredType>int(10) unsigned|0s</StoredType>
     </column>
-    <column id="724" parent="571" name="product_id">
+    <column id="727" parent="571" name="product_id">
       <NotNull>1</NotNull>
       <Position>3</Position>
       <StoredType>int(10) unsigned|0s</StoredType>
     </column>
-    <column id="725" parent="571" name="quantity">
+    <column id="728" parent="571" name="quantity">
       <NotNull>1</NotNull>
       <Position>4</Position>
       <StoredType>decimal(12,3 digit)|0s</StoredType>
     </column>
-    <column id="726" parent="571" name="unit_price">
+    <column id="729" parent="571" name="unit_price">
       <Position>5</Position>
       <StoredType>decimal(12,2 digit)|0s</StoredType>
     </column>
-    <column id="727" parent="571" name="subtotal">
+    <column id="730" parent="571" name="subtotal">
       <ColumnKind>generated-stored</ColumnKind>
       <DefaultExpression>`quantity` * `unit_price`</DefaultExpression>
       <Position>6</Position>
       <StoredType>decimal(14,2 digit)|0s</StoredType>
     </column>
-    <foreign-key id="728" parent="571" name="fk_sale_item_sale">
+    <foreign-key id="731" parent="571" name="fk_sale_item_sale">
       <ColNames>sale_id</ColNames>
       <OnUpdate>cascade</OnUpdate>
       <RefColNames>id_sale</RefColNames>
       <RefTableName>sale</RefTableName>
     </foreign-key>
-    <foreign-key id="729" parent="571" name="fk_sale_item_product">
+    <foreign-key id="732" parent="571" name="fk_sale_item_product">
       <ColNames>product_id</ColNames>
       <OnUpdate>cascade</OnUpdate>
       <RefColNames>id_product</RefColNames>
       <RefTableName>product</RefTableName>
     </foreign-key>
-    <index id="730" parent="571" name="PRIMARY">
+    <index id="733" parent="571" name="PRIMARY">
       <ColNames>id_sale_item</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <index id="731" parent="571" name="fk_sale_item_sale">
+    <index id="734" parent="571" name="fk_sale_item_sale">
       <ColNames>sale_id</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="732" parent="571" name="fk_sale_item_product">
+    <index id="735" parent="571" name="fk_sale_item_product">
       <ColNames>product_id</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="733" parent="571" name="PRIMARY">
+    <key id="736" parent="571" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
-    <column id="734" parent="572" name="id_supplier">
+    <trigger id="737" parent="571" name="trg_sale_item_set_price">
+      <Definer>srhalvs@localhost</Definer>
+      <Events>I</Events>
+      <SourceTextLength>194</SourceTextLength>
+      <Turn>before-row</Turn>
+    </trigger>
+    <column id="738" parent="572" name="id_supplier">
       <AutoIncrement>1</AutoIncrement>
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StoredType>int(10) unsigned|0s</StoredType>
     </column>
-    <column id="735" parent="572" name="company_name">
+    <column id="739" parent="572" name="company_name">
       <NotNull>1</NotNull>
       <Position>2</Position>
       <StoredType>varchar(150)|0s</StoredType>
     </column>
-    <column id="736" parent="572" name="trade_name">
+    <column id="740" parent="572" name="trade_name">
       <Position>3</Position>
       <StoredType>varchar(120)|0s</StoredType>
     </column>
-    <column id="737" parent="572" name="cnpj">
+    <column id="741" parent="572" name="cnpj">
       <NotNull>1</NotNull>
       <Position>4</Position>
       <StoredType>char(17)|0s</StoredType>
     </column>
-    <column id="738" parent="572" name="email">
+    <column id="742" parent="572" name="email">
       <Position>5</Position>
       <StoredType>varchar(150)|0s</StoredType>
     </column>
-    <column id="739" parent="572" name="is_active">
+    <column id="743" parent="572" name="is_active">
       <DefaultExpression>1</DefaultExpression>
       <NotNull>1</NotNull>
       <Position>6</Position>
       <StoredType>tinyint(1)|0s</StoredType>
     </column>
-    <index id="740" parent="572" name="PRIMARY">
+    <index id="744" parent="572" name="PRIMARY">
       <ColNames>id_supplier</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <index id="741" parent="572" name="uk_supplier_cnpj">
+    <index id="745" parent="572" name="uk_supplier_cnpj">
       <ColNames>cnpj</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <index id="742" parent="572" name="uk_supplier_email">
+    <index id="746" parent="572" name="uk_supplier_email">
       <ColNames>email</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <key id="743" parent="572" name="PRIMARY">
+    <key id="747" parent="572" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
-    <key id="744" parent="572" name="uk_supplier_cnpj">
+    <key id="748" parent="572" name="uk_supplier_cnpj">
       <UnderlyingIndexName>uk_supplier_cnpj</UnderlyingIndexName>
     </key>
-    <key id="745" parent="572" name="uk_supplier_email">
+    <key id="749" parent="572" name="uk_supplier_email">
       <UnderlyingIndexName>uk_supplier_email</UnderlyingIndexName>
     </key>
-    <column id="746" parent="573" name="id_user">
+    <column id="750" parent="573" name="id_user">
       <AutoIncrement>1</AutoIncrement>
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StoredType>int(10) unsigned|0s</StoredType>
     </column>
-    <column id="747" parent="573" name="employee_id">
+    <column id="751" parent="573" name="employee_id">
       <NotNull>1</NotNull>
       <Position>2</Position>
       <StoredType>int(10) unsigned|0s</StoredType>
     </column>
-    <column id="748" parent="573" name="username">
+    <column id="752" parent="573" name="username">
       <NotNull>1</NotNull>
       <Position>3</Position>
       <StoredType>varchar(50)|0s</StoredType>
     </column>
-    <column id="749" parent="573" name="password_hash">
+    <column id="753" parent="573" name="password_hash">
       <NotNull>1</NotNull>
       <Position>4</Position>
       <StoredType>varchar(255)|0s</StoredType>
     </column>
-    <column id="750" parent="573" name="is_active">
+    <column id="754" parent="573" name="is_active">
       <DefaultExpression>1</DefaultExpression>
       <NotNull>1</NotNull>
       <Position>5</Position>
       <StoredType>tinyint(1)|0s</StoredType>
     </column>
-    <column id="751" parent="573" name="last_login">
+    <column id="755" parent="573" name="last_login">
       <Position>6</Position>
       <StoredType>datetime|0s</StoredType>
     </column>
-    <column id="752" parent="573" name="created_at">
+    <column id="756" parent="573" name="created_at">
       <DefaultExpression>current_timestamp()</DefaultExpression>
       <NotNull>1</NotNull>
       <Position>7</Position>
       <StoredType>timestamp|0s</StoredType>
     </column>
-    <foreign-key id="753" parent="573" name="fk_user_employee">
+    <foreign-key id="757" parent="573" name="fk_user_employee">
       <ColNames>employee_id</ColNames>
       <OnUpdate>cascade</OnUpdate>
       <RefColNames>id_employee</RefColNames>
       <RefTableName>employee</RefTableName>
     </foreign-key>
-    <index id="754" parent="573" name="PRIMARY">
+    <index id="758" parent="573" name="PRIMARY">
       <ColNames>id_user</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <index id="755" parent="573" name="uk_user_employee">
+    <index id="759" parent="573" name="uk_user_employee">
       <ColNames>employee_id</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <index id="756" parent="573" name="uk_user_username">
+    <index id="760" parent="573" name="uk_user_username">
       <ColNames>username</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <key id="757" parent="573" name="PRIMARY">
+    <key id="761" parent="573" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
-    <key id="758" parent="573" name="uk_user_employee">
+    <key id="762" parent="573" name="uk_user_employee">
       <UnderlyingIndexName>uk_user_employee</UnderlyingIndexName>
     </key>
-    <key id="759" parent="573" name="uk_user_username">
+    <key id="763" parent="573" name="uk_user_username">
       <UnderlyingIndexName>uk_user_username</UnderlyingIndexName>
     </key>
-    <column id="760" parent="574" name="user_id">
+    <column id="764" parent="574" name="user_id">
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StoredType>int(10) unsigned|0s</StoredType>
     </column>
-    <column id="761" parent="574" name="role_id">
+    <column id="765" parent="574" name="role_id">
       <NotNull>1</NotNull>
       <Position>2</Position>
       <StoredType>int(10) unsigned|0s</StoredType>
     </column>
-    <foreign-key id="762" parent="574" name="fk_user_role_user">
+    <foreign-key id="766" parent="574" name="fk_user_role_user">
       <ColNames>user_id</ColNames>
       <OnDelete>cascade</OnDelete>
       <OnUpdate>cascade</OnUpdate>
       <RefColNames>id_user</RefColNames>
       <RefTableName>user</RefTableName>
     </foreign-key>
-    <foreign-key id="763" parent="574" name="fk_user_role_role">
+    <foreign-key id="767" parent="574" name="fk_user_role_role">
       <ColNames>role_id</ColNames>
       <OnUpdate>cascade</OnUpdate>
       <RefColNames>id_role</RefColNames>
       <RefTableName>role</RefTableName>
     </foreign-key>
-    <index id="764" parent="574" name="PRIMARY">
+    <index id="768" parent="574" name="PRIMARY">
       <ColNames>user_id
 role_id</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <index id="765" parent="574" name="fk_user_role_role">
+    <index id="769" parent="574" name="fk_user_role_role">
       <ColNames>role_id</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="766" parent="574" name="PRIMARY">
+    <key id="770" parent="574" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>

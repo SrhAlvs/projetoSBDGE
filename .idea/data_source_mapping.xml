@@ -2,5 +2,6 @@
 <project version="4">
   <component name="DataSourcePerFileMappings">
     <file url="file://$PROJECT_DIR$/database/schema.sql" value="a4e6455c-ab21-4740-adea-2028e2811418" />
+    <file url="file://$PROJECT_DIR$/database/trigger.sql" value="a4e6455c-ab21-4740-adea-2028e2811418" />
   </component>
 </project>
