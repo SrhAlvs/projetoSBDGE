@@ -5,11 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b09908ef-57b0-4de0-9016-128cd73cdf9b" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/a4e6455c-ab21-4740-adea-2028e2811418.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/a4e6455c-ab21-4740-adea-2028e2811418.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/data_sources_history.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/data_sources_history.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/data_source_mapping.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/data_source_mapping.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/a4e6455c-ab21-4740-adea-2028e2811418/storage_v2/_src_/schema/projetoSBDGE.MBgCsg.zip" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/a4e6455c-ab21-4740-adea-2028e2811418/storage_v2/_src_/schema/projetoSBDGE.MBgCsg.zip" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/schema.sql" beforeDir="false" afterPath="$PROJECT_DIR$/database/schema.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/trigger.sql" beforeDir="false" afterPath="$PROJECT_DIR$/database/trigger.sql" afterDir="false" />
@@ -36,61 +33,61 @@
   </component>
   <component name="NextEditCompletionFeaturesState">
     <decayedCancelled>
-      <entry key="MS100" value="1.0" />
-      <entry key="MS500" value="1.0000934053453883" />
-      <entry key="S2" value="1.22374891143152" />
-      <entry key="S5" value="2.700623985448498" />
-      <entry key="S10" value="5.124872792608953" />
-      <entry key="S30" value="10.171840448157855" />
-      <entry key="S60" value="12.892626827373313" />
-      <entry key="M2" value="14.725331270650017" />
-      <entry key="M5" value="16.19550095568014" />
-      <entry key="M10" value="21.68779932516895" />
-      <entry key="M15" value="37.51213396181883" />
-      <entry key="M30" value="108.64992364212749" />
-      <entry key="H1" value="229.2944342302162" />
-      <entry key="H2" value="396.276413499401" />
-      <entry key="H4" value="588.3431747092571" />
-      <entry key="D1" value="992.06522274961" />
-      <entry key="W1" value="1220.4380851738729" />
+      <entry key="MS100" value="1.0000000004024514" />
+      <entry key="MS500" value="1.0202535459053943" />
+      <entry key="S2" value="1.64207859203277" />
+      <entry key="S5" value="2.5170325745602296" />
+      <entry key="S10" value="3.306096765239325" />
+      <entry key="S30" value="5.824589593750227" />
+      <entry key="S60" value="15.287333284801388" />
+      <entry key="M2" value="35.58584143255093" />
+      <entry key="M5" value="65.60650114018887" />
+      <entry key="M10" value="82.12664742649959" />
+      <entry key="M15" value="90.42421893490591" />
+      <entry key="M30" value="121.41033671457737" />
+      <entry key="H1" value="211.47860845258546" />
+      <entry key="H2" value="378.4817298112" />
+      <entry key="H4" value="594.3133251362617" />
+      <entry key="D1" value="1065.8678695142687" />
+      <entry key="W1" value="1318.2472003311495" />
     </decayedCancelled>
     <decayedSelected>
-      <entry key="MS100" value="0.0" />
-      <entry key="MS500" value="0.0" />
-      <entry key="S2" value="1.8109596132334133E-276" />
-      <entry key="S5" value="5.963743073059498E-111" />
-      <entry key="S10" value="1.0159379206172635E-55" />
-      <entry key="S30" value="7.29047430761412E-19" />
-      <entry key="S60" value="1.2483991518964334E-9" />
-      <entry key="M2" value="5.71426103259324E-5" />
-      <entry key="M5" value="0.04414681764727423" />
-      <entry key="M10" value="0.450243947750447" />
-      <entry key="M15" value="0.9977957825410536" />
-      <entry key="M30" value="2.2812697202951444" />
-      <entry key="H1" value="3.578393015146585" />
-      <entry key="H2" value="4.579415136280469" />
-      <entry key="H4" value="5.223568565789307" />
-      <entry key="D1" value="5.859873950521997" />
-      <entry key="W1" value="5.979696214873308" />
+      <entry key="MS100" value="6.054355180171779E-56" />
+      <entry key="MS500" value="9.045104299031212E-12" />
+      <entry key="S2" value="0.0017342168495232666" />
+      <entry key="S5" value="0.0787086671875768" />
+      <entry key="S10" value="0.29130349690392005" />
+      <entry key="S30" value="1.013368897876467" />
+      <entry key="S60" value="1.8361748835670701" />
+      <entry key="M2" value="3.292761390217475" />
+      <entry key="M5" value="6.372745503118062" />
+      <entry key="M10" value="8.582587121261211" />
+      <entry key="M15" value="9.60986964674533" />
+      <entry key="M30" value="11.232759140484662" />
+      <entry key="H1" value="13.071828142964913" />
+      <entry key="H2" value="14.858772854115612" />
+      <entry key="H4" value="16.19546789639192" />
+      <entry key="D1" value="17.658918211666847" />
+      <entry key="W1" value="17.95016238746874" />
     </decayedSelected>
     <decayedShown>
-      <entry key="MS100" value="0.9012504626108302" />
-      <entry key="MS500" value="0.9795119007062787" />
-      <entry key="S2" value="1.2168968650059808" />
-      <entry key="S5" value="2.6910573714734713" />
-      <entry key="S10" value="5.114270924412217" />
-      <entry key="S30" value="10.164905230813993" />
-      <entry key="S60" value="12.888372316428802" />
-      <entry key="M2" value="14.723010542451133" />
-      <entry key="M5" value="16.238359021753343" />
-      <entry key="M10" value="22.13610555473064" />
-      <entry key="M15" value="38.50731530027479" />
-      <entry key="M30" value="110.92790044242514" />
-      <entry key="H1" value="232.8697735076193" />
-      <entry key="H2" value="400.8534501050906" />
-      <entry key="H4" value="593.5651105329412" />
-      <entry key="D1" value="997.9246735220886" />
-      <entry key="W1" value="1226.4177070028509" />
+      <entry key="MS100" value="0.6241652747089051" />
+      <entry key="MS500" value="0.9275879790182578" />
+      <entry key="S2" value="1.59230687819641" />
+      <entry key="S5" value="2.5156553583735572" />
+      <entry key="S10" value="3.4806250120801265" />
+      <entry key="S30" value="6.7187089198155325" />
+      <entry key="S60" value="17.020598569310145" />
+      <entry key="M2" value="38.789586309858656" />
+      <entry key="M5" value="71.91180364486814" />
+      <entry key="M10" value="90.66399414696663" />
+      <entry key="M15" value="100.00038669490525" />
+      <entry key="M30" value="132.62354648106725" />
+      <entry key="H1" value="224.53900516041372" />
+      <entry key="H2" value="393.3337230579195" />
+      <entry key="H4" value="610.5048318743758" />
+      <entry key="D1" value="1083.5259390978517" />
+      <entry key="W1" value="1336.197225967865" />
     </decayedShown>
   </component>
   <component name="ProjectColorInfo">{
@@ -105,31 +102,31 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
-    "codeWithMe.voiceChat.enabledByDefault": "false",
-    "git-widget-placeholder": "main",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/home/sal-alves/Documentos/repositorios/projetoSBDGE/database/trigger.sql",
-    "node.js.detected.package.jshint": "true",
-    "node.js.selected.package.jshint": "",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Libraries",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "SQL Dialects"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
+    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/sal-alves/Documentos/repositorios/projetoSBDGE/database/trigger.sql&quot;,
+    &quot;node.js.detected.package.jshint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.jshint&quot;: &quot;&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;SQL Dialects&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "mariadb"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mariadb&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$" />

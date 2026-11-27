@@ -1378,7 +1378,7 @@ university|schema||srhalvs|localhost|UPDATE|G</Grants>
       <AutoIntrospectionLevel>3</AutoIntrospectionLevel>
       <Current>1</Current>
       <LastIntrospectionLevel>3</LastIntrospectionLevel>
-      <LastIntrospectionLocalTimestamp>2026-11-26.19:59:20</LastIntrospectionLocalTimestamp>
+      <LastIntrospectionLocalTimestamp>2026-11-27.14:56:11</LastIntrospectionLocalTimestamp>
       <CollationName>utf8mb4_unicode_ci</CollationName>
     </schema>
     <schema id="556" parent="1" name="test">
@@ -2277,165 +2277,186 @@ university|schema||srhalvs|localhost|UPDATE|G</Grants>
       <SourceTextLength>194</SourceTextLength>
       <Turn>before-row</Turn>
     </trigger>
-    <column id="738" parent="572" name="id_supplier">
+    <trigger id="738" parent="571" name="trg_sale_item_after_insert">
+      <Definer>srhalvs@localhost</Definer>
+      <Events>I</Events>
+      <SourceTextLength>193</SourceTextLength>
+    </trigger>
+    <trigger id="739" parent="571" name="trg_sale_item_update_price">
+      <Definer>srhalvs@localhost</Definer>
+      <Events>U</Events>
+      <SourceTextLength>194</SourceTextLength>
+      <Turn>before-row</Turn>
+    </trigger>
+    <trigger id="740" parent="571" name="trg_sale_item_after_update">
+      <Definer>srhalvs@localhost</Definer>
+      <Events>U</Events>
+      <SourceTextLength>516</SourceTextLength>
+    </trigger>
+    <trigger id="741" parent="571" name="trg_sale_item_after_delete">
+      <Definer>srhalvs@localhost</Definer>
+      <Events>D</Events>
+      <SourceTextLength>193</SourceTextLength>
+    </trigger>
+    <column id="742" parent="572" name="id_supplier">
       <AutoIncrement>1</AutoIncrement>
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StoredType>int(10) unsigned|0s</StoredType>
     </column>
-    <column id="739" parent="572" name="company_name">
+    <column id="743" parent="572" name="company_name">
       <NotNull>1</NotNull>
       <Position>2</Position>
       <StoredType>varchar(150)|0s</StoredType>
     </column>
-    <column id="740" parent="572" name="trade_name">
+    <column id="744" parent="572" name="trade_name">
       <Position>3</Position>
       <StoredType>varchar(120)|0s</StoredType>
     </column>
-    <column id="741" parent="572" name="cnpj">
+    <column id="745" parent="572" name="cnpj">
       <NotNull>1</NotNull>
       <Position>4</Position>
-      <StoredType>char(17)|0s</StoredType>
+      <StoredType>varchar(17)|0s</StoredType>
     </column>
-    <column id="742" parent="572" name="email">
+    <column id="746" parent="572" name="email">
       <Position>5</Position>
       <StoredType>varchar(150)|0s</StoredType>
     </column>
-    <column id="743" parent="572" name="is_active">
+    <column id="747" parent="572" name="is_active">
       <DefaultExpression>1</DefaultExpression>
       <NotNull>1</NotNull>
       <Position>6</Position>
       <StoredType>tinyint(1)|0s</StoredType>
     </column>
-    <index id="744" parent="572" name="PRIMARY">
+    <index id="748" parent="572" name="PRIMARY">
       <ColNames>id_supplier</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <index id="745" parent="572" name="uk_supplier_cnpj">
+    <index id="749" parent="572" name="uk_supplier_cnpj">
       <ColNames>cnpj</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <index id="746" parent="572" name="uk_supplier_email">
+    <index id="750" parent="572" name="uk_supplier_email">
       <ColNames>email</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <key id="747" parent="572" name="PRIMARY">
+    <key id="751" parent="572" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
-    <key id="748" parent="572" name="uk_supplier_cnpj">
+    <key id="752" parent="572" name="uk_supplier_cnpj">
       <UnderlyingIndexName>uk_supplier_cnpj</UnderlyingIndexName>
     </key>
-    <key id="749" parent="572" name="uk_supplier_email">
+    <key id="753" parent="572" name="uk_supplier_email">
       <UnderlyingIndexName>uk_supplier_email</UnderlyingIndexName>
     </key>
-    <column id="750" parent="573" name="id_user">
+    <column id="754" parent="573" name="id_user">
       <AutoIncrement>1</AutoIncrement>
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StoredType>int(10) unsigned|0s</StoredType>
     </column>
-    <column id="751" parent="573" name="employee_id">
+    <column id="755" parent="573" name="employee_id">
       <NotNull>1</NotNull>
       <Position>2</Position>
       <StoredType>int(10) unsigned|0s</StoredType>
     </column>
-    <column id="752" parent="573" name="username">
+    <column id="756" parent="573" name="username">
       <NotNull>1</NotNull>
       <Position>3</Position>
       <StoredType>varchar(50)|0s</StoredType>
     </column>
-    <column id="753" parent="573" name="password_hash">
+    <column id="757" parent="573" name="password_hash">
       <NotNull>1</NotNull>
       <Position>4</Position>
       <StoredType>varchar(255)|0s</StoredType>
     </column>
-    <column id="754" parent="573" name="is_active">
+    <column id="758" parent="573" name="is_active">
       <DefaultExpression>1</DefaultExpression>
       <NotNull>1</NotNull>
       <Position>5</Position>
       <StoredType>tinyint(1)|0s</StoredType>
     </column>
-    <column id="755" parent="573" name="last_login">
+    <column id="759" parent="573" name="last_login">
       <Position>6</Position>
       <StoredType>datetime|0s</StoredType>
     </column>
-    <column id="756" parent="573" name="created_at">
+    <column id="760" parent="573" name="created_at">
       <DefaultExpression>current_timestamp()</DefaultExpression>
       <NotNull>1</NotNull>
       <Position>7</Position>
       <StoredType>timestamp|0s</StoredType>
     </column>
-    <foreign-key id="757" parent="573" name="fk_user_employee">
+    <foreign-key id="761" parent="573" name="fk_user_employee">
       <ColNames>employee_id</ColNames>
       <OnUpdate>cascade</OnUpdate>
       <RefColNames>id_employee</RefColNames>
       <RefTableName>employee</RefTableName>
     </foreign-key>
-    <index id="758" parent="573" name="PRIMARY">
+    <index id="762" parent="573" name="PRIMARY">
       <ColNames>id_user</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <index id="759" parent="573" name="uk_user_employee">
+    <index id="763" parent="573" name="uk_user_employee">
       <ColNames>employee_id</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <index id="760" parent="573" name="uk_user_username">
+    <index id="764" parent="573" name="uk_user_username">
       <ColNames>username</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <key id="761" parent="573" name="PRIMARY">
+    <key id="765" parent="573" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
-    <key id="762" parent="573" name="uk_user_employee">
+    <key id="766" parent="573" name="uk_user_employee">
       <UnderlyingIndexName>uk_user_employee</UnderlyingIndexName>
     </key>
-    <key id="763" parent="573" name="uk_user_username">
+    <key id="767" parent="573" name="uk_user_username">
       <UnderlyingIndexName>uk_user_username</UnderlyingIndexName>
     </key>
-    <column id="764" parent="574" name="user_id">
+    <column id="768" parent="574" name="user_id">
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StoredType>int(10) unsigned|0s</StoredType>
     </column>
-    <column id="765" parent="574" name="role_id">
+    <column id="769" parent="574" name="role_id">
       <NotNull>1</NotNull>
       <Position>2</Position>
       <StoredType>int(10) unsigned|0s</StoredType>
     </column>
-    <foreign-key id="766" parent="574" name="fk_user_role_user">
+    <foreign-key id="770" parent="574" name="fk_user_role_user">
       <ColNames>user_id</ColNames>
       <OnDelete>cascade</OnDelete>
       <OnUpdate>cascade</OnUpdate>
       <RefColNames>id_user</RefColNames>
       <RefTableName>user</RefTableName>
     </foreign-key>
-    <foreign-key id="767" parent="574" name="fk_user_role_role">
+    <foreign-key id="771" parent="574" name="fk_user_role_role">
       <ColNames>role_id</ColNames>
       <OnUpdate>cascade</OnUpdate>
       <RefColNames>id_role</RefColNames>
       <RefTableName>role</RefTableName>
     </foreign-key>
-    <index id="768" parent="574" name="PRIMARY">
+    <index id="772" parent="574" name="PRIMARY">
       <ColNames>user_id
 role_id</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <index id="769" parent="574" name="fk_user_role_role">
+    <index id="773" parent="574" name="fk_user_role_role">
       <ColNames>role_id</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="770" parent="574" name="PRIMARY">
+    <key id="774" parent="574" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
