@@ -166,4 +166,72 @@ BEGIN
            );
 END;
 
+
+-- =================================
+-- recalcula automaticamente
+-- o sale.total_amount
+-- após inserir um item na venda
+-- =================================
+CREATE TRIGGER trg_sale_item_after_insert
+    AFTER INSERT ON sale_item
+    FOR EACH ROW
+BEGIN
+    UPDATE sale
+    SET total_amount = (
+        SELECT COALESCE(SUM(subtotal), 0.00)
+        FROM sale_item
+        WHERE sale_id = NEW.sale_id
+    )
+    WHERE id_sale = NEW.sale_id;
+END;
+
+
+-- =================================
+-- recalcula automaticamente
+-- o sale.total_amount
+-- após atualizar um item da venda
+-- =================================
+CREATE TRIGGER trg_sale_item_after_update
+    AFTER UPDATE ON sale_item
+    FOR EACH ROW
+BEGIN
+    UPDATE sale
+    SET total_amount = (
+        SELECT COALESCE(SUM(subtotal), 0.00)
+        FROM sale_item
+        WHERE sale_id = NEW.sale_id
+    )
+    WHERE id_sale = NEW.sale_id;
+
+    -- Caso o item tenha sido transferido para outra venda
+    IF OLD.sale_id <> NEW.sale_id THEN
+        UPDATE sale
+        SET total_amount = (
+            SELECT COALESCE(SUM(subtotal), 0.00)
+            FROM sale_item
+            WHERE sale_id = OLD.sale_id
+        )
+        WHERE id_sale = OLD.sale_id;
+    END IF;
+END;
+
+
+-- =================================
+-- recalcula automaticamente
+-- o sale.total_amount
+-- após remover um item da venda
+-- =================================
+CREATE TRIGGER trg_sale_item_after_delete
+    AFTER DELETE ON sale_item
+    FOR EACH ROW
+BEGIN
+    UPDATE sale
+    SET total_amount = (
+        SELECT COALESCE(SUM(subtotal), 0.00)
+        FROM sale_item
+        WHERE sale_id = OLD.sale_id
+    )
+    WHERE id_sale = OLD.sale_id;
+END;
+
 SHOW TRIGGERS;
