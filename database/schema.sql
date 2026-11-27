@@ -82,7 +82,7 @@ CREATE TABLE supplier ( -- fornecedor
     id_supplier INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
     company_name VARCHAR(150) NOT NULL, -- razão social da empresa, o nome jurídico
     trade_name VARCHAR(120), -- nome fantasia, o nome mais conhecido
-    cnpj CHAR(17) NOT NULL, -- vai que um dia usamos letras ou aumentam os números
+    cnpj VARCHAR(17) NOT NULL, -- vai que um dia usamos letras ou aumentam os números
     email VARCHAR(150),
     is_active BOOLEAN NOT NULL DEFAULT TRUE,
 
